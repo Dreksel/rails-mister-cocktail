@@ -1,0 +1,47 @@
+<div class="fixed-top navbar navbar-expand-sm navbar-light navbar-lewagon">
+  <%= link_to "#", class: "navbar-brand" do %>
+    <%= image_tag "cocktail.png" %>
+    <% end %>
+
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <%= link_to "Cocktails", "#", class: "nav-link" %>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<h1>Master Cocktailer</h1>
+<h2>For all your drinking needs</h2>
+<div id='cocktail_index_container'>
+  <% @cocktails.each do |c| %>
+    <div class="card">
+      <!-- Card image -->
+      <!--       <img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Others/images/43.jpg" alt="Card image cap">
+      -->
+      <!-- Card content -->
+      <div class="card-body">
+
+        <!-- Title -->
+        <h4 class="card-title"><a><%= c.name.capitalize %></a></h4>
+        <!-- Text -->
+        <p class="card-text">Insert relevant text here</p>
+        <!-- Button -->
+        <%= link_to cocktail_path(c) do %>
+          <p class='btn btn-primary'>View</p>
+        <% end %>
+        <%= link_to cocktail_path(c), method: :delete do %>
+          <p class='btn btn-primary'>Delete</p>
+        <% end %>
+      </div>
+    </div>
+  <% end %>
+</div>
+
+<%= link_to "Add a cocktail", new_cocktail_path %>
